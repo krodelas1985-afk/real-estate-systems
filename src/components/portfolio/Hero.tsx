@@ -4,10 +4,10 @@ import { contact } from "@/content/site";
 
 const nodes = [
   { icon: Users, label: "Leads" },
-  { icon: MessageSquare, label: "Conversations" },
+  { icon: MessageSquare, label: "Replies" },
   { icon: ListChecks, label: "CRM tasks" },
   { icon: Bot, label: "Follow-ups" },
-  { icon: CalendarCheck, label: "Appointments" },
+  { icon: CalendarCheck, label: "Meetings" },
 ];
 
 export function Hero() {
@@ -81,11 +81,11 @@ export function Hero() {
                   Every inquiry has a next step
                 </span>
               </div>
-              <ul className="mt-3 grid grid-cols-3 gap-x-2 gap-y-3 border-t border-border pt-3 sm:grid-cols-5 sm:gap-x-1 sm:gap-y-0">
+              <ul className="mt-3 grid grid-cols-5 gap-x-1 border-t border-border pt-3">
                 {nodes.map(({ icon: Icon, label }, i) => (
                   <li
                     key={label}
-                    className="flex min-w-0 flex-col items-center gap-1.5 border-border px-1 text-center sm:border-l sm:px-1.5 sm:first:border-l-0"
+                    className="flex min-w-0 flex-col items-center gap-1.5 border-l border-border px-0.5 text-center first:border-l-0 sm:px-1.5"
                   >
                     <span className="relative grid h-5 w-5 shrink-0 place-items-center text-terracotta">
                       <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -96,7 +96,7 @@ export function Hero() {
                         />
                       )}
                     </span>
-                    <span className="text-balance text-center text-[0.62rem] font-semibold leading-tight text-navy sm:text-[0.68rem]">
+                    <span className="text-balance text-center text-[0.58rem] font-semibold leading-tight text-navy sm:text-[0.68rem]">
                       {label}
                     </span>
                   </li>
