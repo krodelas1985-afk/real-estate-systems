@@ -12,12 +12,13 @@ const nodes = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-20 pb-16 sm:pt-28 sm:pb-20">
+    <section id="home" className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-terracotta-soft/60 blur-3xl"
       />
-      <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="container-page relative grid items-start gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+
         <div className="reveal is-visible">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-navy-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-signal" />
