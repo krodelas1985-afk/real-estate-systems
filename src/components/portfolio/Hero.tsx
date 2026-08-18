@@ -12,7 +12,7 @@ const nodes = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section id="home" className="relative overflow-hidden pt-20 pb-16 sm:pt-28 sm:pb-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-terracotta-soft/60 blur-3xl"
