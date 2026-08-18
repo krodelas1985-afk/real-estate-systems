@@ -12,7 +12,7 @@ const nodes = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section id="home" className="relative overflow-hidden pt-20 pb-16 sm:pt-28 sm:pb-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-terracotta-soft/60 blur-3xl"
@@ -69,7 +69,7 @@ export function Hero() {
               className="relative z-10 w-full rounded-[2rem] object-cover"
             />
 
-            <div className="relative z-20 -mt-6 rounded-2xl border border-border bg-card p-4 shadow-lift">
+            <div className="relative z-20 mt-6 rounded-2xl border border-border bg-card p-4 shadow-lift">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 How the work connects
               </p>
