@@ -72,26 +72,28 @@ export function Hero() {
               />
             </div>
 
-            <div className="relative z-20 mt-8 rounded-2xl border border-border bg-card p-4 shadow-lift">
-
+            <div className="relative z-20 mt-8 rounded-2xl border border-border bg-card p-5 shadow-lift">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 How the work connects
               </p>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {nodes.map(({ icon: Icon, label }, i) => (
-                  <li key={label} className="flex items-center gap-3">
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-secondary text-navy">
-                      <Icon className="h-4 w-4" />
+                  <li
+                    key={label}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5"
+                  >
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-card text-navy">
+                      <Icon className="h-3.5 w-3.5" />
                     </span>
-                    <span className="min-w-0 flex-1 truncate text-sm font-medium text-navy">{label}</span>
+                    <span className="text-sm font-medium text-navy">{label}</span>
                     <span
-                      className={`h-1.5 w-1.5 rounded-full ${i === nodes.length - 1 ? "bg-signal" : "bg-terracotta"}`}
+                      className={`ml-1 h-1.5 w-1.5 rounded-full ${i === nodes.length - 1 ? "bg-signal" : "bg-terracotta"}`}
                       aria-hidden="true"
                     />
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 border-t border-border pt-3 text-xs text-muted-foreground">
+              <p className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">
                 Every inquiry stays connected to an agent, a task, and a next step.
               </p>
             </div>
