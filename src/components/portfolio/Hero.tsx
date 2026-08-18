@@ -72,30 +72,31 @@ export function Hero() {
               />
             </div>
 
-            <div className="relative z-20 mt-8 rounded-2xl border border-border bg-card p-5 shadow-lift">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                How the work connects
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
+            <div className="relative z-20 mt-5 rounded-lg border border-border bg-card px-4 py-3 shadow-lift">
+              <div className="flex items-center justify-between gap-4">
+                <p className="shrink-0 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  How the work connects
+                </p>
+                <span className="hidden text-[0.68rem] text-muted-foreground sm:block">
+                  Every inquiry has a next step
+                </span>
+              </div>
+              <ul className="mt-3 grid grid-cols-5 border-t border-border pt-3">
                 {nodes.map(({ icon: Icon, label }, i) => (
                   <li
                     key={label}
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5"
+                    className="flex min-w-0 items-center justify-center gap-1.5 border-l border-border px-1 first:border-l-0"
                   >
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-card text-navy">
-                      <Icon className="h-3.5 w-3.5" />
+                    <span className="grid h-5 w-5 shrink-0 place-items-center text-terracotta">
+                      <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                     </span>
-                    <span className="text-sm font-medium text-navy">{label}</span>
-                    <span
-                      className={`ml-1 h-1.5 w-1.5 rounded-full ${i === nodes.length - 1 ? "bg-signal" : "bg-terracotta"}`}
-                      aria-hidden="true"
-                    />
+                    <span className="min-w-0 text-center text-[0.65rem] font-semibold leading-tight text-navy sm:text-[0.7rem]">
+                      {label}
+                    </span>
+                    {i === nodes.length - 1 && <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-signal" aria-hidden="true" />}
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 border-t border-border pt-3 text-xs text-muted-foreground">
-                Every inquiry stays connected to an agent, a task, and a next step.
-              </p>
             </div>
           </div>
         </div>
