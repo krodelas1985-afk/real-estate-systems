@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import { experienceDuties, bamoAreas } from "@/content/site";
-import bamoLogo from "@/assets/bamo-logo.png.asset.json";
+import bamoLogo from "@/assets/bamo-logo.png";
 
 export function Experience() {
   return (
@@ -58,7 +58,7 @@ export function Experience() {
                     BaMo · Philippine Real Estate Technology
                   </p>
                 </div>
-                <img src={bamoLogo.url} alt="BaMo logo" width={140} height={44} className="h-8 w-auto shrink-0" />
+                <img src={bamoLogo} alt="BaMo logo" width={140} height={44} className="h-8 w-auto shrink-0" />
               </div>
 
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">

@@ -1,6 +1,6 @@
 import { Reveal, SectionHeading } from "./Reveal";
 import { processSteps, toolGroups, aboutParagraphs, aboutFacts } from "@/content/site";
-import headshot from "@/assets/kathy-headshot.png.asset.json";
+import headshot from "@/assets/kathy-headshot.png";
 
 export function Process() {
   return (
@@ -85,7 +85,7 @@ export function About() {
           <div className="relative mx-auto max-w-sm">
             <div className="absolute inset-x-4 bottom-4 top-8 rounded-[1.75rem] bg-terracotta-soft" aria-hidden="true" />
             <img
-              src={headshot.url}
+              src={headshot}
               alt="Kathy Rodelas Talabis"
               width={1024}
               height={951}

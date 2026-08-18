@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Users, MessageSquare, ListChecks, CalendarCheck, Bot } from "lucide-react";
-import headshot from "@/assets/kathy-headshot.png.asset.json";
+import headshot from "@/assets/kathy-headshot.png";
 import { contact } from "@/content/site";
 
 const nodes = [
@@ -63,7 +63,7 @@ export function Hero() {
               <div className="absolute inset-x-6 bottom-6 top-10 rounded-[2rem] bg-navy" aria-hidden="true" />
               <img
                 /* Replace this file to swap in a new headshot. */
-                src={headshot.url}
+                src={headshot}
                 alt="Portrait of Kathy Rodelas Talabis"
                 width={1024}
                 height={951}
