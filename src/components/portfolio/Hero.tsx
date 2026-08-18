@@ -58,19 +58,22 @@ export function Hero() {
         </div>
 
         <div className="reveal is-visible relative" style={{ animationDelay: "120ms" }}>
-          <div className="relative mx-auto max-w-md">
-            <div className="absolute inset-x-6 bottom-6 top-10 rounded-[2rem] bg-navy" aria-hidden="true" />
-            <img
-              /* Replace this file to swap in a new headshot. */
-              src={headshot.url}
-              alt="Portrait of Kathy Rodelas Talabis"
-              width={1024}
-              height={951}
-              loading="eager"
-              className="relative z-10 w-full rounded-[2rem] object-cover"
-            />
+          <div className="mx-auto max-w-md">
+            <div className="relative">
+              <div className="absolute inset-x-6 bottom-6 top-10 rounded-[2rem] bg-navy" aria-hidden="true" />
+              <img
+                /* Replace this file to swap in a new headshot. */
+                src={headshot.url}
+                alt="Portrait of Kathy Rodelas Talabis"
+                width={1024}
+                height={951}
+                loading="eager"
+                className="relative z-10 w-full rounded-[2rem] object-cover"
+              />
+            </div>
 
-            <div className="relative z-20 mt-6 rounded-2xl border border-border bg-card p-4 shadow-lift">
+            <div className="relative z-20 mt-8 rounded-2xl border border-border bg-card p-4 shadow-lift">
+
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 How the work connects
               </p>
