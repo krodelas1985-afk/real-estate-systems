@@ -72,7 +72,7 @@ export function Hero() {
               />
             </div>
 
-            <div className="relative z-20 mt-5 rounded-lg border border-border bg-card px-4 py-3 shadow-lift">
+            <div className="relative z-20 mt-5 rounded-lg border border-border bg-card px-5 py-4 shadow-lift">
               <div className="flex items-center justify-between gap-4">
                 <p className="shrink-0 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                   How the work connects
@@ -81,19 +81,24 @@ export function Hero() {
                   Every inquiry has a next step
                 </span>
               </div>
-              <ul className="mt-3 grid grid-cols-5 border-t border-border pt-3">
+              <ul className="mt-3 grid grid-cols-3 gap-x-2 gap-y-3 border-t border-border pt-3 sm:grid-cols-5 sm:gap-x-1 sm:gap-y-0">
                 {nodes.map(({ icon: Icon, label }, i) => (
                   <li
                     key={label}
-                    className="flex min-w-0 items-center justify-center gap-1.5 border-l border-border px-1 first:border-l-0"
+                    className="flex min-w-0 flex-col items-center gap-1.5 border-border px-1 text-center sm:border-l sm:px-1.5 sm:first:border-l-0"
                   >
-                    <span className="grid h-5 w-5 shrink-0 place-items-center text-terracotta">
+                    <span className="relative grid h-5 w-5 shrink-0 place-items-center text-terracotta">
                       <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                      {i === nodes.length - 1 && (
+                        <span
+                          className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-signal"
+                          aria-hidden="true"
+                        />
+                      )}
                     </span>
-                    <span className="min-w-0 text-center text-[0.65rem] font-semibold leading-tight text-navy sm:text-[0.7rem]">
+                    <span className="text-balance text-center text-[0.62rem] font-semibold leading-tight text-navy sm:text-[0.68rem]">
                       {label}
                     </span>
-                    {i === nodes.length - 1 && <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-signal" aria-hidden="true" />}
                   </li>
                 ))}
               </ul>
