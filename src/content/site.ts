@@ -19,13 +19,39 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const metrics = [
-  { value: "2017", label: "Real estate operations experience since" },
-  { value: "700+", label: "Leads managed in a live CRM environment" },
-  { value: "7,000+", label: "Lead and conversation records processed" },
-  { value: "AI-assisted", label: "Qualification and follow-up workflows" },
-  { value: "Founder", label: "Of BaMo, a real estate technology startup" },
-];
+export const experienceFlow = {
+  eyebrow: "Experience snapshot",
+  title: "Real estate operations, from first conversation to appointment",
+  intro:
+    "Nearly 10 years working directly with property owners, investors, builders, and real estate agents — qualifying opportunities, nurturing leads, and moving conversations toward the next step.",
+  steps: [
+    {
+      marker: "Property Owner Conversations",
+      title: "Motivation, timeline, and condition",
+      body: "Speaking directly with property owners to understand why they are selling, when they need to move, and what shape the property is in.",
+    },
+    {
+      marker: "Lead Qualification",
+      title: "Finding the opportunity behind the inquiry",
+      body: "Pre-qualifying sellers and identifying which leads are worth pursuing based on the client's acquisition or listing criteria.",
+    },
+    {
+      marker: "Investor & Builder Acquisition",
+      title: "Fix & flip, wholesale, and teardown opportunities",
+      body: "Worked with real estate investors and builders evaluating properties for acquisition, redevelopment, and resale.",
+    },
+    {
+      marker: "Appointment Setting",
+      title: "Turning conversations into next steps",
+      body: "Following up with prospects, handling ongoing conversations, and setting qualified appointments for agents, investors, and acquisition teams.",
+    },
+    {
+      marker: "Real Estate Operations",
+      title: "CRM, follow-up, and market support",
+      body: "Managing pipelines, creating follow-up campaigns, sending property listings, preparing market analysis, and keeping leads organized until they are ready to move forward.",
+    },
+  ],
+};
 
 export const expertise = [
   {

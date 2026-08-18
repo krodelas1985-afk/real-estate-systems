@@ -1,6 +1,6 @@
 import { GitBranch, MessagesSquare, Workflow, Building2 } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
-import { metrics, expertise } from "@/content/site";
+import { experienceFlow, expertise } from "@/content/site";
 
 const icons = {
   pipeline: GitBranch,
@@ -9,28 +9,56 @@ const icons = {
   property: Building2,
 };
 
-export function Metrics() {
+export function ExperienceSnapshot() {
+  const { eyebrow, title, intro, steps } = experienceFlow;
+
   return (
     <section className="bg-navy py-20 sm:py-24">
       <div className="container-page">
         <Reveal>
-          <SectionHeading
-            eyebrow="Experience snapshot"
-            title="Operational experience, measured by system activity"
-            intro="These figures describe operational experience and system activity inside CRMs and workflows I have managed or built. They are not personal sales, commission, or closing claims."
-            tone="light"
-          />
+          <SectionHeading eyebrow={eyebrow} title={title} intro={intro} tone="light" />
         </Reveal>
 
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-cream/15 sm:grid-cols-2 lg:grid-cols-3">
-          {metrics.map((m, i) => (
-            <Reveal as="li" key={m.label} delay={i * 70} className="bg-navy p-7">
-              <p className="font-display text-3xl text-cream sm:text-4xl">{m.value}</p>
-              <p className="mt-2 text-sm leading-relaxed text-cream/70">{m.label}</p>
-            </Reveal>
-          ))}
-          <li className="hidden bg-navy p-7 lg:block" aria-hidden="true" />
-        </ul>
+        <ol className="mt-14 grid lg:grid-cols-5">
+          {steps.map((s, i) => {
+            const isLast = i === steps.length - 1;
+            return (
+              <Reveal
+                as="li"
+                key={s.marker}
+                delay={i * 90}
+                className="group relative pb-10 pl-9 last:pb-0 lg:pb-0 lg:pl-0 lg:pr-8 lg:last:pr-0"
+              >
+                {/* connector rail */}
+                {!isLast ? (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[7px] top-5 -bottom-[9px] w-px bg-cream/15 lg:left-4 lg:right-0 lg:top-[7px] lg:bottom-auto lg:h-px lg:w-auto"
+                  />
+                ) : null}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-[9px] grid h-[15px] w-[15px] place-items-center rounded-full border border-terracotta/70 bg-navy transition-colors duration-300 group-hover:border-terracotta lg:top-0"
+                >
+                  <span className="h-[5px] w-[5px] rounded-full bg-terracotta" />
+                </span>
+
+                <div className="lg:pt-8">
+                  <p className="font-display text-xs tracking-[0.2em] text-cream/40">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-2 font-display text-xl leading-snug text-cream sm:text-2xl">
+                    {s.marker}
+                  </h3>
+                  <p className="mt-3 text-sm font-semibold leading-snug text-terracotta">
+                    {s.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-cream/70">{s.body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );
