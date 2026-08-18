@@ -69,7 +69,7 @@ export function Hero() {
               className="relative z-10 w-full rounded-[2rem] object-cover"
             />
 
-            <div className="relative z-20 -mt-6 rounded-2xl border border-border bg-card p-4 shadow-lift">
+            <div className="relative z-20 mt-6 rounded-2xl border border-border bg-card p-4 shadow-lift">
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 How the work connects
               </p>
