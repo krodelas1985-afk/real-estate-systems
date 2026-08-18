@@ -36,9 +36,9 @@ export const experienceFlow = {
       body: "Pre-qualifying sellers and identifying which leads are worth pursuing based on the client's acquisition or listing criteria.",
     },
     {
-      marker: "Investor & Builder Acquisition",
-      title: "Fix & flip, wholesale, and teardown opportunities",
-      body: "Worked with real estate investors and builders evaluating properties for acquisition, redevelopment, and resale.",
+      marker: "Investor, Builder & Broker",
+      title: "Acquisition deals and listing opportunities",
+      body: "Worked with investors and builders evaluating fix & flip, wholesale, and teardown properties, and with brokers and listing agents sourcing sellers, expired listings, and off-market opportunities.",
     },
     {
       marker: "Appointment Setting",
