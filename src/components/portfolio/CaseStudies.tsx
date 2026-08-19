@@ -1,5 +1,6 @@
 import { ImageIcon, ArrowRight } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
+import followUpAiScreenshot from "@/assets/case-study-followup-ai.png";
 
 function ScreenshotPlaceholder({ label }: { label: string }) {
   return (
@@ -107,7 +108,20 @@ export function CaseStudies() {
               </div>
             </div>
             <div className="border-t border-border p-6 sm:p-8">
-              <ScreenshotPlaceholder label="Follow-up workflow run history" />
+              <figure>
+                <img
+                  src={followUpAiScreenshot}
+                  alt="BaMo Campaign Engine Follow-Up AI dashboard showing live enrollments, messages sent, and a decision feed where each automated follow-up is listed with its reasoning. Lead names are blurred."
+                  width={1894}
+                  height={908}
+                  loading="lazy"
+                  className="w-full rounded-xl border border-border shadow-card"
+                />
+                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  Follow-Up AI decision feed &mdash; every automated follow-up with the reasoning
+                  behind it. Lead names are blurred for privacy.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </Reveal>

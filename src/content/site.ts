@@ -97,7 +97,7 @@ export const bamoAreas = [
     body: "Campaign management and listing content workflows that bring inquiries in.",
   },
   {
-    title: "AI-assisted CRM",
+    title: "AI Virtual Assistant",
     body: "Lead qualification, conversation handling, and follow-up support for agents.",
   },
 ];
