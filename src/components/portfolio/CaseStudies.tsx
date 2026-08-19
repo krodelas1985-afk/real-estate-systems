@@ -1,6 +1,7 @@
 import { ImageIcon, ArrowRight } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import followUpAiScreenshot from "@/assets/case-study-followup-ai.png";
+import crmLeadsScreenshot from "@/assets/case-study-crm-leads.png";
 
 function ScreenshotPlaceholder({ label }: { label: string }) {
   return (
@@ -13,10 +14,10 @@ function ScreenshotPlaceholder({ label }: { label: string }) {
 }
 
 const stats = [
-  { value: "62", label: "Distinct leads followed up" },
-  { value: "154", label: "Follow-up messages sent" },
-  { value: "25.8%", label: "Of contacted leads replied" },
-  { value: "Built in", label: "Escalation and stopping rules" },
+  { value: "2,274", label: "AI messages sent" },
+  { value: "1,118", label: "AI Responder" },
+  { value: "1,007", label: "AI Follow-up messages" },
+  { value: "60.0%", label: "Replied — 671 of 1,118" },
 ];
 
 const qualifySteps = [
@@ -204,7 +205,20 @@ export function CaseStudies() {
             </ul>
 
             <div className="mt-8">
-              <ScreenshotPlaceholder label="CRM pipeline and task board" />
+              <figure>
+                <img
+                  src={crmLeadsScreenshot}
+                  alt="BaMo Campaign Engine Leads board showing pipeline stage counts across New, In Contact, Qualifying, Qualified, Viewing and Nurture, above a lead table with stage, status, source, agent, campaign and next task columns. Lead names are blurred."
+                  width={1902}
+                  height={897}
+                  loading="lazy"
+                  className="w-full rounded-xl border border-border shadow-card"
+                />
+                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  Leads board &mdash; pipeline stages, lead status, source and next task in one
+                  view. Lead names are blurred for privacy.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </Reveal>
