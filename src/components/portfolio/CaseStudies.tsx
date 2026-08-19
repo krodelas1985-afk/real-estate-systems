@@ -3,6 +3,7 @@ import { Reveal, SectionHeading } from "./Reveal";
 import followUpAiScreenshot from "@/assets/case-study-followup-ai.png";
 import crmLeadsScreenshot from "@/assets/case-study-crm-leads.png";
 import messengerInboxScreenshot from "@/assets/case-study-messenger-inbox.png";
+import baymoMascot from "@/assets/baymo-mascot.png";
 
 const stats = [
   { value: "2,274", label: "AI messages sent" },
@@ -81,9 +82,19 @@ export function CaseStudies() {
               </div>
 
               <div className="border-t border-border bg-navy p-8 sm:p-10 lg:border-l lg:border-t-0">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cream/60">
-                  Early activity
-                </p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cream/60">
+                    Early activity
+                  </p>
+                  <img
+                    src={baymoMascot}
+                    alt="BaMo, the assistant that sends these follow-ups"
+                    width={192}
+                    height={192}
+                    loading="lazy"
+                    className="h-14 w-14 shrink-0 rounded-full bg-cream/10 object-cover ring-1 ring-cream/20"
+                  />
+                </div>
                 <dl className="mt-6 grid grid-cols-2 gap-6">
                   {stats.map((s) => (
                     <div key={s.label}>
