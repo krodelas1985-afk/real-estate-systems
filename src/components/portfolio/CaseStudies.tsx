@@ -170,7 +170,7 @@ export function CaseStudies() {
                   src={messengerInboxScreenshot}
                   alt="BaMo Campaign Engine inbox showing a Messenger conversation thread, where the assistant answers a pricing question with unit prices, VAT, reservation fee and down payment terms, then asks a qualifying question. Lead names are blurred."
                   width={1912}
-                  height={955}
+                  height={902}
                   loading="lazy"
                   className="w-full rounded-xl border border-border shadow-card"
                 />
