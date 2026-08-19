@@ -1,17 +1,8 @@
-import { ImageIcon, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import followUpAiScreenshot from "@/assets/case-study-followup-ai.png";
 import crmLeadsScreenshot from "@/assets/case-study-crm-leads.png";
-
-function ScreenshotPlaceholder({ label }: { label: string }) {
-  return (
-    <div className="flex min-h-44 flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-navy/25 bg-secondary/70 p-6 text-center">
-      <ImageIcon className="h-5 w-5 text-muted-foreground" aria-hidden="true" />
-      <p className="text-sm font-semibold text-navy">Screenshot placeholder</p>
-      <p className="max-w-xs text-xs text-muted-foreground">{label} — replace with a real screenshot.</p>
-    </div>
-  );
-}
+import messengerInboxScreenshot from "@/assets/case-study-messenger-inbox.png";
 
 const stats = [
   { value: "2,274", label: "AI messages sent" },
@@ -174,7 +165,20 @@ export function CaseStudies() {
                   ))}
                 </ul>
               </div>
-              <ScreenshotPlaceholder label="Messenger qualification conversation" />
+              <figure>
+                <img
+                  src={messengerInboxScreenshot}
+                  alt="BaMo Campaign Engine inbox showing a Messenger conversation thread, where the assistant answers a pricing question with unit prices, VAT, reservation fee and down payment terms, then asks a qualifying question. Lead names are blurred."
+                  width={1912}
+                  height={955}
+                  loading="lazy"
+                  className="w-full rounded-xl border border-border shadow-card"
+                />
+                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  Messenger inbox &mdash; a pricing question answered with real figures, followed by
+                  a qualifying question. Lead names are blurred for privacy.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </Reveal>
