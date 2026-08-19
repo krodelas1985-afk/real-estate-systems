@@ -3,10 +3,11 @@ export const contact = {
   name: "Kathy Rodelas Talabis",
   shortName: "Kathy Rodelas",
   title: "Real Estate Operations, CRM & Workflow Automation Specialist",
-  email: "hello@example.com", // TODO: replace with real email
-  linkedin: "https://www.linkedin.com/in/your-profile", // TODO: replace
-  schedulingUrl: "https://calendly.com/your-link", // TODO: replace
-  resumeUrl: "/resume-placeholder.pdf", // TODO: replace with real resume file
+  email: "Kathytalabis@bahaymo.com",
+  linkedin: "https://www.linkedin.com/in/katherine-rodelas-talabis-4532933a0/",
+  schedulingUrl: "https://calendly.com/filtered18/30min",
+  whatsapp: "+63 906 655 9428",
+  whatsappUrl: "https://wa.me/639066559428",
   location: "Based in the Philippines",
 };
 

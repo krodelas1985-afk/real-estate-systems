@@ -1,4 +1,4 @@
-import { Calendar, Mail, Linkedin, Download } from "lucide-react";
+import { Calendar, Mail, Linkedin, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { contact } from "@/content/site";
 
@@ -7,7 +7,7 @@ export function Contact() {
     { label: "Schedule a Call", href: contact.schedulingUrl, icon: Calendar, primary: true },
     { label: "Send an Email", href: `mailto:${contact.email}`, icon: Mail },
     { label: "Connect on LinkedIn", href: contact.linkedin, icon: Linkedin },
-    { label: "Download Resume", href: contact.resumeUrl, icon: Download },
+    { label: "Message on WhatsApp", href: contact.whatsappUrl, icon: MessageCircle },
   ];
 
   return (
@@ -46,10 +46,6 @@ export function Contact() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-center text-xs text-cream/50">
-            Email, LinkedIn, scheduling link, and resume file are placeholders — update them in{" "}
-            <code>src/content/site.ts</code>.
-          </p>
         </Reveal>
       </div>
     </section>

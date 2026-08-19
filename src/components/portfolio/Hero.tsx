@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Users, MessageSquare, ListChecks, CalendarCheck, Bot } from "lucide-react";
+import { ArrowRight, MessageCircle, Users, MessageSquare, ListChecks, CalendarCheck, Bot } from "lucide-react";
 import headshot from "@/assets/kathy-headshot.png";
 import { contact } from "@/content/site";
 
@@ -49,10 +49,12 @@ export function Hero() {
               Let's Talk
             </a>
             <a
-              href={contact.resumeUrl}
+              href={contact.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-1 py-2 text-sm font-semibold text-navy-soft underline underline-offset-4 transition-colors hover:text-terracotta"
             >
-              <Download className="h-4 w-4" /> Download Resume
+              <MessageCircle className="h-4 w-4" /> Message on WhatsApp
             </a>
           </div>
         </div>
