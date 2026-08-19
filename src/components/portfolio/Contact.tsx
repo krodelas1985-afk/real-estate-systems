@@ -1,11 +1,64 @@
-import { Calendar, Mail, Linkedin, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Calendar, Mail, Linkedin, MessageCircle, Check } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { contact } from "@/content/site";
 
 export function Contact() {
+  const [emailState, setEmailState] = useState<"idle" | "copied" | "failed">("idle");
+
+  // mailto: silently does nothing when the visitor has no mail client
+  // registered, so also copy the address and confirm it on screen. The
+  // clipboard API itself can be refused (permissions, no focus, http), so
+  // fall back to execCommand and, failing that, surface the address on the
+  // button -- the click must never end in silence.
+  const copyEmail = () => {
+    const settle = (ok: boolean) => {
+      setEmailState(ok ? "copied" : "failed");
+      window.setTimeout(() => setEmailState("idle"), 3000);
+    };
+
+    const legacyCopy = () => {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = contact.email;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        return ok;
+      } catch {
+        return false;
+      }
+    };
+
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(contact.email)
+        .then(() => settle(true))
+        .catch(() => settle(legacyCopy()));
+    } else {
+      settle(legacyCopy());
+    }
+  };
+
+  const emailLabel =
+    emailState === "copied"
+      ? "Email address copied"
+      : emailState === "failed"
+        ? contact.email
+        : "Send an Email";
+
   const actions = [
     { label: "Schedule a Call", href: contact.schedulingUrl, icon: Calendar, primary: true },
-    { label: "Send an Email", href: `mailto:${contact.email}`, icon: Mail },
+    {
+      label: emailLabel,
+      href: `mailto:${contact.email}`,
+      icon: emailState === "copied" ? Check : Mail,
+      onClick: copyEmail,
+    },
     { label: "Connect on LinkedIn", href: contact.linkedin, icon: Linkedin },
     { label: "Message on WhatsApp", href: contact.whatsappUrl, icon: MessageCircle },
   ];
@@ -29,10 +82,11 @@ export function Contact() {
 
         <Reveal delay={100}>
           <ul className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
-            {actions.map(({ label, href, icon: Icon, primary }) => (
-              <li key={label}>
+            {actions.map(({ label, href, icon: Icon, primary, onClick }) => (
+              <li key={href}>
                 <a
                   href={href}
+                  onClick={onClick}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                   className={`flex items-center justify-center gap-3 rounded-full px-6 py-4 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
                     primary
@@ -46,6 +100,24 @@ export function Contact() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-center text-sm text-cream/60">
+            Or reach me directly at{" "}
+            <a
+              href={`mailto:${contact.email}`}
+              className="select-all font-medium text-cream underline underline-offset-4 hover:text-terracotta"
+            >
+              {contact.email}
+            </a>{" "}
+            &middot;{" "}
+            <a
+              href={contact.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="select-all font-medium text-cream underline underline-offset-4 hover:text-terracotta"
+            >
+              {contact.whatsapp}
+            </a>
+          </p>
         </Reveal>
       </div>
     </section>
