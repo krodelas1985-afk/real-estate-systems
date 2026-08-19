@@ -8,6 +8,7 @@ export const contact = {
   schedulingUrl: "https://calendly.com/filtered18/30min",
   whatsapp: "+63 906 655 9428",
   whatsappUrl: "https://wa.me/639066559428",
+  bamoProfileUrl: "https://businessportfolio.bahaymo.com/",
   location: "Based in the Philippines",
 };
 

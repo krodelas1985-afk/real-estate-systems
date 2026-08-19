@@ -1,6 +1,6 @@
-import { Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
-import { experienceDuties, bamoAreas } from "@/content/site";
+import { experienceDuties, bamoAreas, contact } from "@/content/site";
 import bamoLogo from "@/assets/bamo-logo.png";
 
 export function Experience() {
@@ -76,11 +76,22 @@ export function Experience() {
                 ))}
               </div>
 
-              <p className="mt-8 border-t border-border pt-6 text-sm leading-relaxed text-muted-foreground">
-                BaMo is where I take a real business problem, design a working process, build the
-                system behind it, test it with real lead activity, and improve it using the data that
-                comes back.
-              </p>
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  BaMo is where I take a real business problem, design a working process, build the
+                  system behind it, test it with real lead activity, and improve it using the data
+                  that comes back.
+                </p>
+                <a
+                  href={contact.bamoProfileUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full border border-navy/20 bg-card px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-terracotta hover:text-terracotta"
+                >
+                  Visit the BaMo business profile
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>

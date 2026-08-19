@@ -1,9 +1,67 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Maximize2 } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
 import followUpAiScreenshot from "@/assets/case-study-followup-ai.png";
 import crmLeadsScreenshot from "@/assets/case-study-crm-leads.png";
 import messengerInboxScreenshot from "@/assets/case-study-messenger-inbox.png";
 import baymoMascot from "@/assets/baymo-mascot.png";
+import appAssistant from "@/assets/bamo-app-assistant.png";
+import appLeads from "@/assets/bamo-app-leads.png";
+import appTasks from "@/assets/bamo-app-tasks.png";
+import appSocial from "@/assets/bamo-app-social.png";
+
+function Screenshot({
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  bleed = false,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+  bleed?: boolean;
+}) {
+  return (
+    <figure className={bleed ? "-mx-8 sm:-mx-10" : undefined}>
+      {/* A desktop UI shrunk to phone width is unreadable, so the whole
+          image opens at full resolution where the browser allows zoom. */}
+      <a
+        href={src}
+        target="_blank"
+        rel="noreferrer"
+        className="group relative block focus-visible:outline focus-visible:outline-2 focus-visible:outline-terracotta"
+      >
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading="lazy"
+          className={`w-full border-border shadow-card ${bleed ? "border-y" : "rounded-xl border"}`}
+        />
+        <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-navy/85 px-3 py-1.5 text-[0.7rem] font-semibold text-cream opacity-90 transition-opacity group-hover:opacity-100">
+          <Maximize2 className="h-3 w-3" aria-hidden="true" />
+          View full size
+        </span>
+      </a>
+      <figcaption
+        className={`mt-3 text-xs leading-relaxed text-muted-foreground ${bleed ? "px-8 sm:px-10" : ""}`}
+      >
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
+
+const appShots = [
+  { src: appAssistant, w: 413, h: 813, label: "Daily briefing", alt: "BaMo mobile app home screen. The assistant greets the agent, flags a lead needing attention, and reports 19 new leads today with 13 already replied to." },
+  { src: appLeads, w: 387, h: 816, label: "Leads", alt: "BaMo mobile app leads list, filtered by Hot, Ready and For Viewing, each lead card offering Message and Mark handled. Lead names are blurred." },
+  { src: appTasks, w: 377, h: 815, label: "Tasks", alt: "BaMo mobile app task list showing take-over tasks for warm and hot Messenger leads, each with Done, Defer and Assign actions. Lead names are blurred." },
+  { src: appSocial, w: 374, h: 805, label: "Social media", alt: "BaMo mobile app social media screen showing a connected Facebook page, auto-posting schedule of three posts a week, and recent published posts." },
+];
 
 const stats = [
   { value: "2,274", label: "AI messages sent" },
@@ -101,20 +159,13 @@ export function CaseStudies() {
               </div>
             </div>
             <div className="border-t border-border p-6 sm:p-8">
-              <figure>
-                <img
-                  src={followUpAiScreenshot}
-                  alt="BaMo Campaign Engine Follow-Up AI dashboard showing live enrollments, messages sent, and a decision feed where each automated follow-up is listed with its reasoning. Lead names are blurred."
-                  width={1894}
-                  height={908}
-                  loading="lazy"
-                  className="w-full rounded-xl border border-border shadow-card"
-                />
-                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  Follow-Up AI decision feed &mdash; every automated follow-up with the reasoning
-                  behind it. Lead names are blurred for privacy.
-                </figcaption>
-              </figure>
+              <Screenshot
+                src={followUpAiScreenshot}
+                alt="BaMo Campaign Engine Follow-Up AI dashboard showing live enrollments, messages sent, and a decision feed where each automated follow-up is listed with its reasoning. Lead names are blurred."
+                width={1894}
+                height={908}
+                caption="Follow-Up AI decision feed — every automated follow-up with the reasoning behind it. Lead names are blurred for privacy."
+              />
             </div>
           </div>
         </Reveal>
@@ -166,20 +217,13 @@ export function CaseStudies() {
                   ))}
                 </ul>
               </div>
-              <figure>
-                <img
-                  src={messengerInboxScreenshot}
-                  alt="BaMo Campaign Engine inbox showing a Messenger conversation thread, where the assistant answers a pricing question with unit prices, VAT, reservation fee and down payment terms, then asks a qualifying question. Lead names are blurred."
-                  width={1912}
-                  height={902}
-                  loading="lazy"
-                  className="w-full rounded-xl border border-border shadow-card"
-                />
-                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  Messenger inbox &mdash; a pricing question answered with real figures, followed by
-                  a qualifying question. Lead names are blurred for privacy.
-                </figcaption>
-              </figure>
+              <Screenshot
+                src={messengerInboxScreenshot}
+                alt="BaMo Campaign Engine inbox showing a Messenger conversation thread, where the assistant answers a pricing question with unit prices, VAT, reservation fee and down payment terms, then asks a qualifying question. Lead names are blurred."
+                width={1912}
+                height={902}
+                caption="Messenger inbox — a pricing question answered with real figures, followed by a qualifying question. Lead names are blurred for privacy."
+              />
             </div>
           </div>
         </Reveal>
@@ -196,22 +240,62 @@ export function CaseStudies() {
               become buried in messages, spreadsheets, or incomplete task lists.
             </p>
 
-            <div className="mt-8 -mx-8 sm:-mx-10">
-              <figure>
-                <img
-                  src={crmLeadsScreenshot}
-                  alt="BaMo Campaign Engine Leads board showing pipeline stage counts across New, In Contact, Qualifying, Qualified, Viewing and Nurture, above a lead table with stage, status, source, agent, campaign and next task columns. Lead names are blurred."
-                  width={1902}
-                  height={897}
-                  loading="lazy"
-                  className="w-full border-y border-border shadow-card"
-                />
-                <figcaption className="mt-3 px-8 text-xs leading-relaxed text-muted-foreground sm:px-10">
-                  Leads board &mdash; pipeline stages, lead status, source and next task in one
-                  view. Lead names are blurred for privacy.
-                </figcaption>
-              </figure>
+            <div className="mt-8">
+              <Screenshot
+                src={crmLeadsScreenshot}
+                alt="BaMo Campaign Engine Leads board showing pipeline stage counts across New, In Contact, Qualifying, Qualified, Viewing and Nurture, above a lead table with stage, status, source, agent, campaign and next task columns. Lead names are blurred."
+                width={1902}
+                height={897}
+                caption="Leads board — pipeline stages, lead status, source and next task in one view. Lead names are blurred for privacy."
+                bleed
+              />
             </div>
+          </div>
+        </Reveal>
+
+        {/* Case study 4 */}
+        <Reveal as="article" className="mt-8">
+          <div className="rounded-3xl border border-border bg-card p-8 shadow-card sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-terracotta">
+              Case Study 04
+            </p>
+            <h3 className="mt-3 text-2xl text-navy sm:text-3xl">BaMo Mobile App</h3>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              Agents do not work at a desk. The mobile app is the one surface they actually open:
+              it surfaces the leads worth answering now, the tasks that are overdue, and what the
+              assistant already handled overnight &mdash; without exposing the systems running
+              underneath.
+            </p>
+
+            {/* phone captures stay near their native width and scroll sideways on small screens */}
+            <div className="mt-8 -mx-8 overflow-x-auto px-8 pb-2 sm:-mx-10 sm:px-10">
+              <ul className="flex gap-4 sm:grid sm:grid-cols-4 sm:gap-5">
+                {appShots.map(({ src, w, h, label, alt }) => (
+                  <li key={label} className="w-[17rem] shrink-0 sm:w-auto sm:min-w-0">
+                    <a
+                      href={src}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-terracotta"
+                    >
+                      <img
+                        src={src}
+                        alt={alt}
+                        width={w}
+                        height={h}
+                        loading="lazy"
+                        className="w-full rounded-2xl border border-border shadow-card"
+                      />
+                    </a>
+                    <p className="mt-2 text-xs font-semibold text-navy">{label}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              BaMo mobile app &mdash; tap any screen to view it full size. Lead names are blurred
+              for privacy.
+            </p>
           </div>
         </Reveal>
       </div>
