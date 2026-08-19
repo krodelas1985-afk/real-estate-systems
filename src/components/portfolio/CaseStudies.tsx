@@ -21,16 +21,6 @@ const qualifySteps = [
   "Agent handoff",
 ];
 
-const crmChain = [
-  "New inquiries",
-  "Conversation history",
-  "Lead status",
-  "Follow-up tasks",
-  "Appointments",
-  "Agent handoff",
-  "Performance review",
-];
-
 export function CaseStudies() {
   return (
     <section id="case-studies" className="bg-secondary/60 py-20 sm:py-28">
@@ -206,20 +196,7 @@ export function CaseStudies() {
               become buried in messages, spreadsheets, or incomplete task lists.
             </p>
 
-            <ul className="mt-8 flex flex-wrap items-center gap-2">
-              {crmChain.map((c, i) => (
-                <li key={c} className="flex items-center gap-2">
-                  <span className="rounded-full border border-border bg-secondary/70 px-4 py-2 text-sm font-medium text-navy">
-                    {c}
-                  </span>
-                  {i < crmChain.length - 1 ? (
-                    <span className="h-px w-4 bg-terracotta" aria-hidden="true" />
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8">
+            <div className="mt-8 -mx-8 sm:-mx-10">
               <figure>
                 <img
                   src={crmLeadsScreenshot}
@@ -227,9 +204,9 @@ export function CaseStudies() {
                   width={1902}
                   height={897}
                   loading="lazy"
-                  className="w-full rounded-xl border border-border shadow-card"
+                  className="w-full border-y border-border shadow-card"
                 />
-                <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                <figcaption className="mt-3 px-8 text-xs leading-relaxed text-muted-foreground sm:px-10">
                   Leads board &mdash; pipeline stages, lead status, source and next task in one
                   view. Lead names are blurred for privacy.
                 </figcaption>
